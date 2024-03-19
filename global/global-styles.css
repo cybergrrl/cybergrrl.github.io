@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #faf0e6;
+}
+
 /* Prevent links from changing color when clicked */
 a,
 a:visited,
@@ -59,4 +63,27 @@ header li,
 footer li {
   display: inline-block;
   margin: 0.5em 25px;
+}
+
+.btn {
+  background-color: #faf0e6;
+  color: #1a1a1a;
+  border-radius: 12px;
+  border: 2px solid #1a1a1a;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 0; 
+}
+
+.btn:hover, .btn:focus {
+  background-color: #1a1a1a;
+  color: #faf0e6;
+}
+
+input[type="text"] {
+  margin-bottom: 20px;
 }

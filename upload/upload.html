@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../global/global-styles.css" />
+    <title>Scout's Indiesite</title>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pictures/pictures.html">Pictures</a></li>
+          </ul>
+        </nav>
+      </header>
+      <h1>You can upload a picture here!</h1>
+      <form action="../pictures/images" method="post" enctype="multipart/form-data">
+        <label for="picTitle">Picture Title:</label><br>
+        <input type="text" id="picTitle" name="picTitle"><br>
+        <label for="picFile">Select a picture:</label><br>
+        <input type="file" id="picFile" name="picFile" accept="image/*"><br>
+        <input type="submit" value="Upload Picture" class="btn">
+      </form>
+      <footer>
+        <ul>
+          <li>
+            <a href="https://github.com/cybergrrl" rel="me"
+              >@cybergrrl on Github</a
+            >
+          </li>
+          <li>
+            <a href="https://tech.lgbt/deck/@scoutaloud" rel="me">Mastodon</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
