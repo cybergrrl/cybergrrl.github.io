@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Image for Wandering Inn</title>
+    <script
+      type="text/javascript"
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Upload Image for Wandering Inn</h1>
+    <div id="loginStatus"></div>
+    <div id="loginButton" style="display: none">
+      <button onclick="netlifyIdentity.open()">Log in</button>
+    </div>
+    <form id="imageForm" style="display: none">
+      <label for="imageUrl">Image URL (required):</label>
+      <input type="url" id="imageUrl" name="imageUrl" required />
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea>
+
+      <label for="altText">Alt Text:</label>
+      <input type="text" id="altText" name="altText" />
+
+      <label for="prompt">Prompt:</label>
+      <input type="text" id="prompt" name="prompt" />
+
+      <label for="creationDate">Creation Date:</label>
+      <input type="date" id="creationDate" name="creationDate" />
+
+      <button type="submit">Add to JSON</button>
+    </form>
+    <script>
+      netlifyIdentity.on("init", (user) => {
+        if (user) {
+          showLoggedInState(user);
+        } else {
+          showLoggedOutState();
+        }
+      });
+
+      netlifyIdentity.on("login", (user) => {
+        showLoggedInState(user);
+      });
+
+      netlifyIdentity.on("logout", () => {
+        showLoggedOutState();
+      });
+
+      function showLoggedInState(user) {
+        document.getElementById("loginStatus").textContent =
+          `Logged in as ${user.email}`;
+        document.getElementById("loginButton").style.display = "none";
+        document.getElementById("imageForm").style.display = "block";
+      }
+
+      function showLoggedOutState() {
+        document.getElementById("loginStatus").textContent =
+          "You need to log in to upload images.";
+        document.getElementById("loginButton").style.display = "block";
+        document.getElementById("imageForm").style.display = "none";
+      }
+
+      document
+        .getElementById("imageForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const user = netlifyIdentity.currentUser();
+
+          if (!user) {
+            alert("You must be logged in to submit.");
+            return;
+          }
+
+          const token = await user.jwt();
+
+          try {
+            const response = await fetch("/.netlify/functions/add-image", {
+              method: "POST",
+              body: formData,
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+            const result = await response.json();
+            alert(result.message);
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to add image");
+          }
+        });
+    </script>
+  </body>
+</html>

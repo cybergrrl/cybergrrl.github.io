@@ -1,0 +1,18 @@
+{
+  "images": [
+    {
+      "imageUrl": "https://cdn.midjourney.com/f8a0c7c9-d07b-4fb1-93ee-c08af36f628d/0_2.png",
+      "description": "Ryoka is running through the midwinter landscape near Riverfarm with Ivolethe flying next to her. This is a scene from the last chapter of Book 4, Winter Solstice. Ryoka has just left Riverfarm and is wearing the scarf that Yesel gave her.",
+      "altText": "young woman of east asian appearance running through a winter landscape with a blue light floating next to her.",
+      "prompt": "action-shot of a determined athletic young female asian-anglo long-distance runner running past the camera in medieval sport outfit with trousers and a knit scarf, a satchel strapped to her back and a pouch on her belt running through the wilderness in the mountains in winter. next to her floats a tiny fuzzy blue light --no thin slender model smile agriculture fields surprise --ar 4:3 --v 6.1 --stylize 500 --personalize ht7qdta",
+      "creationDate": "2024-08-05"
+    },
+    {
+      "imageUrl": "https://cdn.midjourney.com/6613c412-4df2-4d56-8b13-27d580a52412/0_0.png",
+      "description": "Portrait of Relc Grasstongue, Senior Guardsman of Liscor and friend (sometimes frenemy) of Erin Solstice with his favourite spear.",
+      "altText": "drawing of a muscular lizard-man wearing light leather armour and holding a spear",
+      "prompt": "full body portrait of a tall bulky and very muscular lizard-man with light green scales and huge strong arms wearing guard gear and holding a spear in his clawed paw --ar 3:4 --v 6.1 --stylize 900 --personalize ht7qdta",
+      "creationDate": "2024-08-07"
+    }
+  ]
+}
