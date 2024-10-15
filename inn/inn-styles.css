@@ -1,0 +1,71 @@
+/* Apply the global styles and extend for this page layout */
+.site-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for narrow screens */
+    grid-template-rows: auto 1fr auto; /* Grid for header, main content, and footer */
+    min-height: 100vh; /* Ensure full height layout */
+    gap: 20px; /* Space between grid items */
+  }
+  
+  /* Ensure the global .page-container styles still apply */
+  .page-container {
+    max-width: 960px; /* Already set in global CSS */
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #faf0e6; /* Inherited from global */
+    color: #1a1a1a; /* Inherited from global */
+  }
+  
+  /* Main content styling */
+  .main-content {
+    text-align: center;
+    font-family: "Open Sans", sans-serif; /* Ensure consistent font usage */
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem); /* Responsive scaling for headings */
+    margin-bottom: 1rem; /* Add space under the heading */
+  }
+  
+  p {
+    max-width: 600px;
+    margin: 1rem auto;
+    font-size: clamp(1rem, 2vw, 1.25rem); /* Responsive text sizing */
+    line-height: 1.5; /* Improve readability */
+  }
+  
+  /* Ensure header and footer layout is clean */
+  .site-header__nav ul,
+  .site-footer__nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Use flexbox gap instead of inline-block margin */
+  }
+  
+  .site-header__nav ul li,
+  .site-footer__nav ul li {
+    margin: 0;
+  }
+  
+  .site-header__nav ul li a,
+  .site-footer__nav ul li a {
+    text-decoration: none;
+    color: inherit; /* Use global link color */
+  }
+  
+  @media (min-width: 768px) {
+    /* Adjust the grid layout for larger screens */
+    .site-container {
+      grid-template-columns: 1fr 2fr 1fr; /* Main content in the center column */
+    }
+  
+    .main-content {
+      grid-column: 2; /* Center main content */
+    }
+  
+    .site-header, .site-footer {
+      grid-column: 1 / span 3; /* Full width for header and footer */
+    }
+  }
+  
